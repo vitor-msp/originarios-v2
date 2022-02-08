@@ -1,0 +1,134 @@
+﻿@model Originarios.Models.Contato
+
+@{
+    ViewBag.Title = "Contato";
+}
+
+@if(ViewBag.enviado)
+{
+    <p>Agradecemos o seu contato! Em breve retornaremos.</p>
+}
+
+<div class="container-fluid px-0">
+    <div class="text-center my-4">
+        <h1 class="display-4 text-white text-uppercase py-3">Fale conosco</h1>
+        <span class="h5 d-block text-white text-uppercase">Prezados clientes, como podemos ajudar?</span>
+    </div>
+    <div class="row">
+        <div class="col-lg-7 mb-2 mx-auto w-100 p-0">
+            <div class="card mt-2 mx-auto bg-transparent border-0">
+                <div class="card-body bg-transparent px-0">
+                    <div class="container-fluid px-0">
+                        <h2 class="h4 text-white text-center text-uppercase mb-4">Formulário de solicitações</h2>
+                        @using (Html.BeginForm("Create", "Contatos", FormMethod.Post, new { id = "contact-form", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="controls">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group text-white">
+                                            <label class="my-2" for="form_name">Nome completo *</label>
+
+                                            @if (ViewBag.estaLogado)
+                                            {
+                                                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @type = "text", id = "form_name", name = "name", @class = "form-control", placeholder = "Digite o seu nome completo *", required = "required", dataError = "O nome é necessário.", @maxlength = "50", @readonly = "readonly", @Value = ViewBag.nome } })
+                                            }
+                                            else
+                                            {
+                                                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @type = "text", id = "form_name", name = "name", @class = "form-control", placeholder = "Digite o seu nome completo *", required = "required", dataError = "O nome é necessário.", @maxlength = "50" } })
+                                            }
+                                            @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group text-white">
+                                            <label class="my-2" for="form_lastname">Endereço *</label>
+
+                                            @if (ViewBag.estaLogado)
+                                            {
+                                                @Html.EditorFor(model => model.endereco, new { htmlAttributes = new { @type = "text", id = "form_lastname", name = "surname", @class = "form-control", placeholder = "Digite o seu endereço *", required = "required", dataError = "O endereço é necessário.", @maxlength = "70", @Value = ViewBag.endereco } })
+                                            }
+                                            else
+                                            {
+                                                @Html.EditorFor(model => model.endereco, new { htmlAttributes = new { @type = "text", id = "form_lastname", name = "surname", @class = "form-control", placeholder = "Digite o seu endereço *", required = "required", dataError = "O endereço é necessário.", @maxlength = "70" } })
+                                            }
+                                            @Html.ValidationMessageFor(model => model.endereco, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group text-white">
+                                            <label class="my-2" for="form_email">e-mail *</label>
+
+                                            @if (ViewBag.estaLogado)
+                                            {
+                                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @type = "email", id = "form_email", name = "email", @class = "form-control", placeholder = "Digite o seu e-mail *", required = "required", dataError = "É necessário um e-mail válido.", @maxlength = "30", @readonly = "readonly", @Value = ViewBag.email } })
+                                            }
+                                            else
+                                            {
+                                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @type = "email", id = "form_email", name = "email", @class = "form-control", placeholder = "Digite o seu e-mail *", required = "required", dataError = "É necessário um e-mail válido.", @maxlength = "30" } })
+                                            }
+                                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group text-white">
+                                            <label class="my-2" for="form_need">Especifique sua necessidade *</label>
+
+                                            @Html.DropDownListFor(model => model.assunto, new SelectList(ViewBag.assunto, "texto", "texto"), "--Selecione sua dúvida--", new { @class = "form-control", id = "form_need", name = "need", required = "required", dataError = "Por favor, especifique sua necessidade.", @maxlength = "30" })
+                                            @Html.ValidationMessageFor(model => model.assunto, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group text-white">
+                                            <label class="my-2" for="form_message"> Mensagem *</label>
+
+                                            @Html.TextAreaFor(model => model.mensagem, 4, 10, htmlAttributes: new { id = "form_message", name = "message", @class = "form-control", placeholder = "Escreva a sua mensagem aqui.", required = "required", dataError = "Por favor, deixe-nos uma mensagem.", @maxlength = "2000" })
+                                            @Html.ValidationMessageFor(model => model.mensagem, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-warning btn-send pt-2 btn-block my-3" value="Enviar mensagem">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-5 mx-auto p-0">
+            <br>
+            <img src="~/Images/grafismo.png" width="80%" height="40px" style="margin-left: 10%; object-fit: cover; filter: invert(100%);" />
+            <br>
+            <div class="card mt-2 mx-auto bg-transparent border-0">
+                <h2 class="h4 text-white text-center text-uppercase py-3">Onde estamos</h2>
+                <div class="text-center text-white">
+                    <p>Alameda Benevento, 429 - Itaigara, Salvador - BA</p>
+                    <p>Horário de atendimento: 07:00 - 19:00 (seg à sexta)</p>
+                    <p>Telefone: (71) 3354-2789 / (71) 98765-4321</p>
+                    <p>e-mail: originarios_recode@hotmail.com</p>
+                </div>
+                <h2 class="h4 text-white text-center text-uppercase py-3">Redes sociais</h2>
+                <div class="text-center text-white">
+                    <p><a class="btn btn-warning btn-social mx-2" href="https://www.instagram.com/originarios.recode/"><svg class="svg-inline--fa fa-instagram fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a>Instagram - originarios.recode</p>
+                    <p><a class="btn btn-warning btn-social mx-2" href="https://www.facebook.com/originarios.recode/"><svg class="svg-inline--fa fa-facebook fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg></a>Facebook - originarios.recode</p>
+                    <p><a class="btn btn-warning btn-social mx-2" href="https://www.linkedin.com/originarios.recode/"><svg class="svg-inline--fa fa-linkedin fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></a>Linkedin - originarios.recode</p>
+                </div>
+            </div>
+            <br>
+            <img src="~/Images/grafismo.png" width="80%" height="40px" style="margin-left: 10%; object-fit: cover; filter: invert(100%);" />
+            <br>
+        </div>
+    </div>
+</div>

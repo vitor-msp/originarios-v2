@@ -1,0 +1,130 @@
+﻿@model Originarios.Models.Postagem
+
+@{
+    ViewBag.Title = "Detalhes do Produto";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<hr />
+@*-------------------------- Inputs texto --------------------------*@
+<div class="row">
+
+    <div class="form-group col-12 col-sm-9 pb-4">
+        <span><b>Título:</b></span>
+        <div class="col-12 col-sm-11">
+            <span>@Html.DisplayFor(model => model.titulo)</span>
+        </div>
+    </div>
+
+    <div class="form-group col-12 col-sm-3 pb-4">
+        <span><b>Valor:</b></span>
+        <div class="col-6 col-sm-12">
+            <span>@Html.DisplayFor(model => model.valor)</span>
+        </div>
+    </div>
+
+    <div class="form-group col-12 pb-4">
+        <span><b>Descrição:</b></span>
+        <div class="col-12">
+            <span class="text-break">@Html.DisplayFor(model => model.descricao)</span>
+        </div>
+    </div>
+
+    <div class="form-group col-12 pb-4">
+        <span><b>Vendedor:</b></span>
+        <div class="col-12">
+            <span class="text-break">@Html.DisplayFor(model => model.Usuario1.nome)</span>
+        </div>
+    </div>
+
+    <div class="form-group col-12 col-sm-9 pb-4">
+        <span><b>Cidade:</b></span>
+        <div class="col-12 col-sm-11">
+            <span>@Html.DisplayFor(model => model.Usuario1.cidade)</span>
+        </div>
+    </div>
+
+    <div class="form-group col-12 col-sm-3">
+        <span><b>Estado:</b></span>
+        <div class="col-6 col-sm-12">
+            <span>@Html.DisplayFor(model => model.Usuario1.estado)</span>
+        </div>
+    </div>
+
+</div>
+<hr />
+
+@*-------------------------- Imagens --------------------------*@
+<div class="row">
+
+    @*----------- Imagem 1 -----------*@
+    <div class="col-12 col-sm-6 p-2 borda-sec-img">
+
+        <div class="row mb-2 text-center">
+            <span><b>@Html.DisplayFor(model => model.nm_img1)</b></span>
+        </div>
+
+        <div class="row mb-2">
+            <img class="img-fluid" src="@Url.Action("ObterImgNaView", "Postagens", new { id = Model.id_post, img = 1 })">
+        </div>
+
+    </div>
+
+    @*----------- Imagem 2 -----------*@
+    <div class="col-12 col-sm-6 p-2 borda-sec-img">
+
+        <div class="row mb-2 text-center">
+            <span><b>@Html.DisplayFor(model => model.nm_img2)</b></span>
+        </div>
+
+        <div class="row mb-2">
+            <img class="img-fluid" src="@Url.Action("ObterImgNaView", "Postagens", new { id = Model.id_post, img = 2 })">
+        </div>
+
+    </div>
+
+    @*----------- Imagem 3 -----------*@
+    <div class="col-12 col-sm-6 p-2 borda-sec-img">
+
+        <div class="row mb-2 text-center">
+            <span><b>@Html.DisplayFor(model => model.nm_img3)</b></span>
+        </div>
+
+        <div class="row mb-2">
+            <img class="img-fluid" src="@Url.Action("ObterImgNaView", "Postagens", new { id = Model.id_post, img = 3 })">
+        </div>
+
+    </div>
+
+    @*----------- Imagem 4 -----------*@
+    <div class="col-12 col-sm-6 p-2 borda-sec-img">
+
+        <div class="row mb-2 text-center">
+            <span><b>@Html.DisplayFor(model => model.nm_img4)</b></span>
+        </div>
+
+        <div class="row mb-2">
+            <img class="img-fluid" src="@Url.Action("ObterImgNaView", "Postagens", new { id = Model.id_post, img = 4 })">
+        </div>
+
+    </div>
+
+</div>
+
+<hr />
+@*-------------------------- Detalhes --------------------------*@
+<div class="row">
+    <span class="px-0"><b>Detalhes:</b></span>
+    <div class="col-12">
+        <span class="text-break">@Html.DisplayFor(model => model.corpo)</span>
+    </div>
+</div>
+
+<hr />
+@*-------------------------- Botões --------------------------*@
+<div class="row d-flex flex-row justify-content-between justify-content-sm-center">
+    @Html.ActionLink("Voltar", "Index", "Produtos", null, htmlAttributes: new { @class = "btn btn-light w-auto" })
+    <a href="@ViewBag.email" class="btn btn-primary w-auto mx-sm-4">E-mail</a>
+    <a href="@ViewBag.wpp" target="_blank" class="btn btn-success w-auto">WhatsApp</a>
+</div>

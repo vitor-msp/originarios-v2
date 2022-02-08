@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Originarios.Models.Postagem>
+
+@{
+    ViewBag.Title = "Meus Produtos";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (ViewBag.msg != null)
+{
+    <h5 class="text-success">@ViewBag.msg</h5>
+}
+
+<p>
+    @Html.ActionLink("Criar novo", "Create", "Postagens", null, htmlAttributes: new { @class = "btn btn-warning" })
+</p>
+
+<div class="container-fluid p-0 d-flex flex-row flex-wrap justify-content-around" style="">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="d-inline-block vertical-align: top text-black mt-4 " style="">
+            <div class="card" style="width: 15rem; height: 35rem;">
+
+                <a href="@Url.Action("Details", "Postagens", new { id = item.id_post })">
+
+                    <img src="@Url.Action("ObterImgNaView", "Postagens", new { id = item.id_post, img = 1 })" class="card-img-top border " alt="..." style=" ">
+                </a>
+
+                <div class="card-body" style="height: 8rem;overflow: auto;">
+                    <br />
+                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.titulo) </h5>
+                    <h5 class="card-text text-danger" style="">R$ @Html.DisplayFor(modelItem => item.valor)</h5>
+                    <p><a href="@Url.Action("Details", "Postagens",new { id = item.id_post })" class="text-info">Ver mais detalhes</a></p>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

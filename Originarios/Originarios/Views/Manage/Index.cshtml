@@ -1,0 +1,81 @@
+﻿@model Originarios.Models.IndexViewModel
+@{ ViewBag.Title = "Meus Dados"; }
+
+@if (ViewBag.msg != null)
+{
+    <h5 class="text-success">@ViewBag.msg</h5>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.StatusMessage))
+{
+    <h5 class="text-success">@ViewBag.StatusMessage</h5>
+}
+
+<div class="container-fluid px-0 pb-5">
+    <div class="my-5 text-center">
+        <h1 class="display-4 text-white text-uppercase py-3">Meus Dados</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg mb-2 mx-auto w-100 px-0">
+            <div class="bg-transparent rounded">
+                <div class="row">
+
+                    <div class="form-group col-md-5 pb-4">
+                        <label for="form_name">Nome completo:</label><br />
+                        <span><strong>@ViewBag.usuario.nome</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-3 pb-4">
+                        <label for="inputCPF">CPF:</label><br />
+                        <span><strong>@Convert.ToUInt64(ViewBag.usuario.cpf).ToString(@"000\.000\.000\-00")</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-4 pb-4">
+                        <label for="inputCPF">Data de Nascimento:</label><br />
+                        <span><strong>@ViewBag.usuario.dt_nasc.ToString("dd/MM/yyyy")</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-2 pb-4">
+                        <label for="inputCPF">DDD:</label><br />
+                        <span><strong>@ViewBag.usuario.ddd</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-4 pb-4">
+                        <label for="inputCPF">WhatsApp:</label><br />
+                        <span><strong>@ViewBag.usuario.whatsapp</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-3 pb-4">
+                        <label for="inputCidade">Cidade:</label><br />
+                        <span><strong>@ViewBag.usuario.cidade</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-3 pb-4">
+                        <label for="inputEstado">Estado:</label><br />
+                        <span><strong>@ViewBag.usuario.estado</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-5 pb-4">
+                        <label for="form_email">E-mail:</label><br />
+                        <span><strong>@ViewBag.usuario.email</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-4 pb-4">
+                        <label for="inputSenha">Senha:</label><br />
+                        @if (Model.HasPassword)
+                        {
+                            @Html.ActionLink("Alterar minha senha", "ChangePassword", "Manage", null, htmlAttributes: new { @class = "text-light" })
+                        }
+                    </div>
+
+                </div>
+
+                <div class="px-2 d-flex flex-row justify-content-center">
+                    @Html.ActionLink("Voltar", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-secondary mx-2" })
+                    @Html.ActionLink("Editar Dados", "Edit", "Manage", routeValues: null, htmlAttributes: new { @class = "btn btn-warning mx-2" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

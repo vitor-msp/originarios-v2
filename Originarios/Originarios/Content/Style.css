@@ -1,0 +1,75 @@
+﻿/* ---------- início geral ---------- */
+:root {
+    --cor-escura: rgb(117, 69, 41);
+    --cor-escura-transp: rgba(117, 69, 41, 0.5);
+    --cor-clara: rgb(155, 106, 78);
+    --cor-clara-transp: rgba(155, 106, 78, 0.5);
+}
+body {
+    background-color: var(--cor-clara);
+    text-align: justify;
+}
+#divPrincipal {
+    min-height: 100vh;
+}
+.row, .col-12 {
+    margin: 0px;
+    padding: 0px;
+}
+a[disabled="disabled"] {
+    pointer-events: none;
+}
+/* ---------- fim geral ---------- */
+
+/* ---------- início nav ---------- */
+nav {
+    background-color: var(--cor-escura);
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: white;
+    background-color: var(--cor-clara);
+}
+.navbar-light .navbar-toggler {
+    border-color: rgba(255,255,255,0.75);
+}
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.row > .navbar-light {
+    padding: 0px;
+}
+#navToggler {
+    margin-left: none !important;
+}
+@media (min-width: 992px) {
+    #navToggler {
+        margin-left: 50px !important;
+    }
+}
+@media (max-width: 576px) {
+    #nav > .container-fluid {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .navbar-nav .nav-link {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+}
+/* ---------- fim nav ---------- */
+
+/* ---------- início main ---------- */
+/* ---------- fim main ---------- */
+
+/* ---------- início footer ---------- */
+footer {
+    background-color: var(--cor-escura);
+}
+/* ---------- fim footer ---------- */

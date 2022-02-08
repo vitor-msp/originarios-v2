@@ -1,0 +1,187 @@
+﻿@model Originarios.Models.Postagem
+
+@{
+    ViewBag.Title = "Editar Produto";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Edit", "Postagens", FormMethod.Post, htmlAttributes: new { id = "formSalvarPost", @class = "form", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id_post)
+    @*Associa id do usuário logado à postagem que será editada*@
+    @Html.HiddenFor(model => model.usuario, new { Value = @ViewBag.usuario })
+
+    <hr />
+    @*-------------------------- Inputs texto --------------------------*@
+    <div class="row">
+
+        <div class="form-group col-12 col-sm-9">
+            <label class="control-label" for="titulo">Título:</label>
+            <div class="col-12 col-sm-11">
+                @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { id = "titulo", autofocus = "autofocus", @class = "form-control", @maxlength = "30", required = "required", dataError = "Um título é necessário." } })
+                @Html.ValidationMessageFor(model => model.titulo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-12 col-sm-3">
+            <label class="control-label" for="inputValor">Valor:</label>
+            <div class="col-6 col-sm-12">
+                @Html.EditorFor(model => model.valor, new { htmlAttributes = new { id = "inputValor", type = "number", @class = "form-control", min = "0", max = "99999", step = "1", @Value = ViewBag.valor } })
+                @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-12">
+            <label class="control-label" for="descricao">Descrição:</label>
+            <div class="col-12">
+                @Html.EditorFor(model => model.descricao, new { htmlAttributes = new { id = "descricao", @class = "form-control", @maxlength = "100", required = "required", dataError = "Uma descrição é necessária." } })
+                @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-12">
+            <label class="control-label" for="corpo">Detalhes:</label>
+            <div class="col-12">
+                @Html.TextAreaFor(model => model.corpo, 4, 10, htmlAttributes: new { id = "corpo", @class = "form-control", @maxlength = "5000" })
+                @Html.ValidationMessageFor(model => model.corpo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    </div>
+    <hr />
+    @*-------------------------- Imagens --------------------------*@
+    <div class="row">
+
+        @*----------- Imagem 1 -----------*@
+        <div class="col-12 col-xl-6 p-2 borda-sec-img">
+
+            <div class="form-group row mb-2">
+                <label class="control-label" style="padding: 0px" for="nomeImg1">Imagem 1:</label>
+                <div class="col-12 col-sm-5">
+                    @Html.EditorFor(model => model.nm_img1, new { htmlAttributes = new { id = "nomeImg1", @class = "form-control", @maxlength = "20" } })
+                    @Html.ValidationMessageFor(model => model.nm_img1, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-12 col-sm-6">
+                    <input type="file" class="form-control" accept="image/*" onchange="carregarImg1(event)">
+                    @Html.HiddenFor(model => model.base64_img1, new { id = "hiddenCrop1" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 mb-2 mb-sm-0 bg-pre-crop">
+                    <img id="preCrop1" style="display: block; max-width: 100%;" src="@Url.Action("ObterImgNaView", "Postagens", new { id = Model.id_post, img = 1 })">
+                </div>
+
+                <div class="col-12 col-sm-4 d-flex flex-column">
+                    <div class="posCrop1 mx-auto mb-2" style="overflow: hidden; width: 200px; height: 200px; margin-left: auto;"></div>
+                    <button type="button" id="btnCanvas1" class="btn btn-danger">Salvar Imagem</button>
+                </div>
+            </div>
+
+        </div>
+
+        @*----------- Imagem 2 -----------*@
+        <div class="col-12 col-xl-6 p-2 borda-sec-img">
+
+            <div class="form-group row mb-2">
+                <label class="control-label" style="padding: 0px" for="nomeImg1">Imagem 2:</label>
+                <div class="col-12 col-sm-5">
+                    @Html.EditorFor(model => model.nm_img2, new { htmlAttributes = new { id = "nomeImg2", @class = "form-control", @maxlength = "20" } })
+                    @Html.ValidationMessageFor(model => model.nm_img2, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-12 col-sm-6">
+                    <input type="file" class="form-control" accept="image/*" onchange="carregarImg2(event)">
+                    @Html.HiddenFor(model => model.base64_img2, new { id = "hiddenCrop2" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 mb-2 mb-sm-0 bg-pre-crop">
+                    <img id="preCrop2" style="display: block; max-width: 100%;" src="@Url.Action("ObterImgNaView", "Postagens", new { id = Model.id_post, img = 2 })">
+                </div>
+
+                <div class="col-12 col-sm-4 d-flex flex-column">
+                    <div class="posCrop2 mx-auto mb-2" style="overflow: hidden; width: 200px; height: 200px; margin-left: auto;"></div>
+                    <button type="button" id="btnCanvas2" class="btn btn-danger">Salvar Imagem</button>
+                </div>
+            </div>
+
+        </div>
+
+        @*----------- Imagem 3 -----------*@
+        <div class="col-12 col-xl-6 p-2 borda-sec-img">
+
+            <div class="form-group row mb-2">
+                <label class="control-label" style="padding: 0px" for="nomeImg3">Imagem 3:</label>
+                <div class="col-12 col-sm-5">
+                    @Html.EditorFor(model => model.nm_img3, new { htmlAttributes = new { id = "nomeImg3", @class = "form-control", @maxlength = "20" } })
+                    @Html.ValidationMessageFor(model => model.nm_img3, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-12 col-sm-6">
+                    <input type="file" class="form-control" accept="image/*" onchange="carregarImg3(event)">
+                    @Html.HiddenFor(model => model.base64_img3, new { id = "hiddenCrop3" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 mb-2 mb-sm-0 bg-pre-crop">
+                    <img id="preCrop3" style="display: block; max-width: 100%;" src="@Url.Action("ObterImgNaView", "Postagens", new { id = Model.id_post, img = 3 })">
+                </div>
+
+                <div class="col-12 col-sm-4 d-flex flex-column">
+                    <div class="posCrop3 mx-auto mb-2" style="overflow: hidden; width: 200px; height: 200px; margin-left: auto;"></div>
+                    <button type="button" id="btnCanvas3" class="btn btn-danger">Salvar Imagem</button>
+                </div>
+            </div>
+
+        </div>
+
+        @*----------- Imagem 4 -----------*@
+        <div class="col-12 col-xl-6 p-2 borda-sec-img">
+
+            <div class="form-group row mb-2">
+                <label class="control-label" style="padding: 0px" for="nomeImg4">Imagem 4:</label>
+                <div class="col-12 col-sm-5">
+                    @Html.EditorFor(model => model.nm_img4, new { htmlAttributes = new { id = "nomeImg4", @class = "form-control", @maxlength = "20" } })
+                    @Html.ValidationMessageFor(model => model.nm_img4, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-12 col-sm-6">
+                    <input type="file" class="form-control" accept="image/*" onchange="carregarImg4(event)">
+                    @Html.HiddenFor(model => model.base64_img4, new { id = "hiddenCrop4" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 mb-2 mb-sm-0 bg-pre-crop">
+                    <img id="preCrop4" style="display: block; max-width: 100%;" src="@Url.Action("ObterImgNaView", "Postagens", new { id = Model.id_post, img = 4 })">
+                </div>
+
+                <div class="col-12 col-sm-4 d-flex flex-column">
+                    <div class="posCrop4 mx-auto mb-2" style="overflow: hidden; width: 200px; height: 200px; margin-left: auto;"></div>
+                    <button type="button" id="btnCanvas4" class="btn btn-danger">Salvar Imagem</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr />
+    @*-------------------------- Botões --------------------------*@
+    <div class="row">
+        <div class="col-6 px-2 d-flex justify-content-end">
+            @Html.ActionLink("Voltar", "Details", "Postagens", routeValues: new { id = Model.id_post } , htmlAttributes: new { @class = "btn btn-secondary" })
+        </div>
+        <div class="col-6 px-2">
+            <input type="button" id="btnSalvarProduto" value="Salvar" class="btn btn-success" />
+        </div>
+    </div>
+}

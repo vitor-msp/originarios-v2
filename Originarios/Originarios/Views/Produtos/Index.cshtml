@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Originarios.Models.Postagem>
+
+@{ ViewBag.Title = "Produtos"; }
+<div style="background-image: url(/Images/4.png); width: 100%; height: 97px; background-size: cover; background-repeat: no-repeat; object-fit: cover; object-position: center top;">
+    <br />
+    <div><h2 class="text-center" style="text-shadow: 2px 2px 8px #121212;">@ViewBag.Title</h2></div>
+
+    <br />
+</div>
+
+<hr style="border-color: #aaa; box-sizing: border-box; width: 100%;" />
+
+@if (ViewBag.msg != null)
+{
+    <h5 class="text-success">@ViewBag.msg</h5>
+}
+
+<div class="container-fluid p-0 d-flex flex-row flex-wrap justify-content-around" style="">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="d-inline-block vertical-align: top text-black mt-4 " style="">
+            <div class="card" style="width: 15rem;height: 436px;box-shadow: 2px 2px 8px #11111170;">
+                @*<div class="card" style="width: 15rem; height: 35rem;">*@
+
+                <a href="@Url.Action("Details", "Produtos", new { id = item.id_post })">
+
+                    <img src="@Url.Action("ObterImgNaView", "Postagens", new { id = item.id_post, img = 1 })" class="card-img-top border " alt="..." style="max-width: 100%; width: 300px; height: 270px; object-fit: cover; object-position: top; ">
+                </a>
+
+                <div class="card-body text-center" style="height: 8rem;overflow: auto;">
+                    <br />
+                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.titulo) </h5>
+                    <h5 class="card-text text-danger" style="">R$ @Html.DisplayFor(modelItem => item.valor)</h5>
+                    <p><a href="@Url.Action("Details", "Produtos",new { id = item.id_post })" class="text-info">Ver mais detalhes</a></p>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+<div class="d-flex flex-row justify-content-center mt-4">
+    @Html.ActionLink("<<", "Index", "Produtos", routeValues: new { skip = ViewBag.pre }, htmlAttributes: new { @class = ViewBag.pre < 0 ? "btn btn-secondary mx-2" : "btn btn-primary mx-2", disabled = ViewBag.pre < 0 ? "disabled" : "false" })
+    @Html.ActionLink(">>", "Index", "Produtos", routeValues: new { skip = ViewBag.pos }, htmlAttributes: new { @class = ViewBag.pos < 0 ? "btn btn-secondary mx-2" : "btn btn-primary mx-2", disabled = ViewBag.pos < 0 ? "disabled" : "false" })
+</div>
