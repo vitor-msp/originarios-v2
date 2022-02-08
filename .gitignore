@@ -518,4 +518,4 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/csharp,aspnetcore
 
 Testes/
-!App_Data/
+!aspnet-Originarios-20211218030913.mdf
