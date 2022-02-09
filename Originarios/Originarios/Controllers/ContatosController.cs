@@ -26,10 +26,15 @@ namespace Originarios.Controllers
             }
             List<Assunto> assuntos = new List<Assunto>()
             {
-                new Assunto() {id = 1, texto = "Solicitar fatura do pedido" },
-                new Assunto() {id = 2, texto = "Solicitar estado do pedido" },
-                new Assunto() {id = 3, texto = "Ainda não recebi reembolso" },
-                new Assunto() {id = 4, texto = "Outro" }
+                new Assunto() {id = 1, texto = "Contato com o vendedor" },
+                new Assunto() {id = 3, texto = "Cadastro na plataforma" },
+                new Assunto() {id = 4, texto = "Atualização dos meus dados" },
+                new Assunto() {id = 5, texto = "Alteração da minha senha" },
+                new Assunto() {id = 6, texto = "Visualização das minhas publicações" },
+                new Assunto() {id = 7, texto = "Adição de uma publicação" },
+                new Assunto() {id = 8, texto = "Edição de uma publicação" },
+                new Assunto() {id = 9, texto = "Gostaria de contribuir com o projeto" },
+                new Assunto() {id = 10, texto = "Outro" }
             };
             ViewBag.assunto = assuntos;
 

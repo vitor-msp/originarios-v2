@@ -13,7 +13,7 @@
           <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="endereco" Type="nvarchar" MaxLength="70" />
-          <Property Name="assunto" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="assunto" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="mensagem" Type="nvarchar" MaxLength="2000" Nullable="false" />
         </EntityType>
         <EntityType Name="Postagem">
@@ -142,7 +142,7 @@
           <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="endereco" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="assunto" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="assunto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mensagem" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>

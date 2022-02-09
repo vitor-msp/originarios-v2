@@ -41,7 +41,7 @@ create table Contato (
   nome nvarchar(50) not null,
   email nvarchar(30) not null,
   endereco nvarchar(70),
-  assunto nvarchar(30) not null,
+  assunto nvarchar(50) not null,
   mensagem nvarchar(2000) not null,
   constraint pk_contato primary key (id_ctt)
 );
