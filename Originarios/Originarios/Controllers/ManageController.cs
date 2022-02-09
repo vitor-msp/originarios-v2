@@ -92,7 +92,7 @@ namespace Originarios.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_usu,nome,cpf,dt_nasc,email,cidade,estado,ddd,whatsapp")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "id_usu,nome,cpf,dt_nasc,email,cidade,estado,ddd,whatsapp,tribo,assinatura")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {

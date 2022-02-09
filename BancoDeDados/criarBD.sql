@@ -12,6 +12,8 @@ create table Usuario (
   estado char(2),
   ddd char(2) not null,
   whatsapp varchar(10) not null,
+  tribo nvarchar(30) not null,
+  assinatura nvarchar(30),
   constraint pk_usu primary key (id_usu)
 );
 go
@@ -44,5 +46,5 @@ create table Contato (
   constraint pk_contato primary key (id_ctt)
 );
 go
-insert into Usuario (nome,cpf,dt_nasc,email,cidade,estado,ddd,whatsapp) values ('Fulano de Tal','01234567891','2000-01-20','teste@teste.com','Rio de Janeiro','RJ','00','12345678');
+insert into Usuario (nome,cpf,dt_nasc,email,cidade,estado,ddd,whatsapp,tribo,assinatura) values ('Fulano de Tal','01234567891','2000-01-20','teste@teste.com','Rio de Janeiro','RJ','00','12345678','Kiriri','Fulano');
 go

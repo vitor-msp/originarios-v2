@@ -21,47 +21,57 @@
                 <div class="row">
 
                     <div class="form-group col-md-5 pb-4">
-                        <label for="form_name">Nome completo:</label><br />
+                        <label>Nome completo:</label><br />
                         <span><strong>@ViewBag.usuario.nome</strong></span>
                     </div>
 
                     <div class="form-group col-md-3 pb-4">
-                        <label for="inputCPF">CPF:</label><br />
+                        <label>Assinatura:</label><br />
+                        <span><strong>@ViewBag.usuario.assinatura</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-3 pb-4">
+                        <label>CPF:</label><br />
                         <span><strong>@Convert.ToUInt64(ViewBag.usuario.cpf).ToString(@"000\.000\.000\-00")</strong></span>
                     </div>
 
                     <div class="form-group col-md-4 pb-4">
-                        <label for="inputCPF">Data de Nascimento:</label><br />
+                        <label>Data de Nascimento:</label><br />
                         <span><strong>@ViewBag.usuario.dt_nasc.ToString("dd/MM/yyyy")</strong></span>
                     </div>
 
                     <div class="form-group col-md-2 pb-4">
-                        <label for="inputCPF">DDD:</label><br />
+                        <label>DDD:</label><br />
                         <span><strong>@ViewBag.usuario.ddd</strong></span>
                     </div>
 
                     <div class="form-group col-md-4 pb-4">
-                        <label for="inputCPF">WhatsApp:</label><br />
+                        <label>WhatsApp:</label><br />
                         <span><strong>@ViewBag.usuario.whatsapp</strong></span>
                     </div>
 
                     <div class="form-group col-md-3 pb-4">
-                        <label for="inputCidade">Cidade:</label><br />
+                        <label>Tribo:</label><br />
+                        <span><strong>@ViewBag.usuario.tribo</strong></span>
+                    </div>
+
+                    <div class="form-group col-md-3 pb-4">
+                        <label>Cidade:</label><br />
                         <span><strong>@ViewBag.usuario.cidade</strong></span>
                     </div>
 
                     <div class="form-group col-md-3 pb-4">
-                        <label for="inputEstado">Estado:</label><br />
+                        <label>Estado:</label><br />
                         <span><strong>@ViewBag.usuario.estado</strong></span>
                     </div>
 
                     <div class="form-group col-md-5 pb-4">
-                        <label for="form_email">E-mail:</label><br />
+                        <label>E-mail:</label><br />
                         <span><strong>@ViewBag.usuario.email</strong></span>
                     </div>
 
                     <div class="form-group col-md-4 pb-4">
-                        <label for="inputSenha">Senha:</label><br />
+                        <label>Senha:</label><br />
                         @if (Model.HasPassword)
                         {
                             @Html.ActionLink("Alterar minha senha", "ChangePassword", "Manage", null, htmlAttributes: new { @class = "text-light" })

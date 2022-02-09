@@ -16,9 +16,16 @@
                     <div class="row">
 
                         <div class="form-group col-md-5 pb-4">
-                            <label for="form_name">Nome completo *</label>
-                            @Html.EditorFor(m => m.nome, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", id = "form_nome" } })
+                            <label for="inputNome">Nome completo *</label>
+                            @Html.EditorFor(m => m.nome, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", id = "inputNome" } })
                             @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group col-md-3 pb-4">
+                            <label for="inputAssinatura">Assinatura *</label>
+                            @Html.EditorFor(m => m.assinatura, new { htmlAttributes = new { @class = "form-control", @maxlength = "30", id = "inputAssinatura" } })
+                            @Html.ValidationMessageFor(model => model.assinatura, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group col-md-3 pb-4">
@@ -28,22 +35,28 @@
                         </div>
 
                         <div class="form-group col-md-4 pb-4">
-                            <label for="inputCPF">Data de Nascimento *</label>
+                            <label for="inputDate">Data de Nascimento *</label>
                             @Html.EditorFor(m => m.dt_nasc, new { htmlAttributes = new { @class = "form-control", @type = "date", id = "inputDate" } })
                             @Html.ValidationMessageFor(model => model.dt_nasc, "", new { @class = "text-danger" })
                             <input type="hidden" value="@ViewBag.dtNasc" id="hiddenDtNasc" style="display: none;" />
                         </div>
 
                         <div class="form-group col-md-2 pb-4">
-                            <label for="inputCPF">DDD *</label>
+                            <label for="inputDDD">DDD *</label>
                             @Html.EditorFor(m => m.ddd, new { htmlAttributes = new { @class = "form-control", @maxlength = "2", id = "inputDDD" } })
                             @Html.ValidationMessageFor(model => model.ddd, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group col-md-4 pb-4">
-                            <label for="inputCPF">WhatsApp *</label>
+                            <label for="inputWhatsApp">WhatsApp *</label>
                             @Html.EditorFor(m => m.whatsapp, new { htmlAttributes = new { @class = "form-control", @maxlength = "10", id = "inputWhatsApp" } })
                             @Html.ValidationMessageFor(model => model.whatsapp, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-md-3 pb-4">
+                            <label for="inputTribo">Tribo *</label>
+                            @Html.EditorFor(m => m.tribo, new { htmlAttributes = new { @class = "form-control", @maxlength = "30", id = "inputTribo" } })
+                            @Html.ValidationMessageFor(model => model.tribo, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group col-md-3 pb-4">

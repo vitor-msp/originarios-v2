@@ -122,6 +122,8 @@ namespace Originarios.Controllers
                             usuario.estado = model.usuario.estado;
                             usuario.ddd = model.usuario.ddd;
                             usuario.whatsapp = model.usuario.whatsapp;
+                            usuario.tribo = model.usuario.tribo;
+                            usuario.assinatura = model.usuario.assinatura;
                             usuario.email = model.registro.Email;
                             db.Usuario.Add(usuario);
                             db.SaveChanges();
