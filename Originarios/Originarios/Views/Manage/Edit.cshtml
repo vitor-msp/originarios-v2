@@ -17,7 +17,7 @@
 
                         <div class="form-group col-md-5 pb-4">
                             <label for="inputNome">Nome completo *</label>
-                            @Html.EditorFor(m => m.nome, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", id = "inputNome" } })
+                            @Html.EditorFor(m => m.nome, new { htmlAttributes = new { @class = "form-control", @maxlength = "50", id = "inputNome", autofocus = "autofocus" } })
                             @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
                         </div>
 

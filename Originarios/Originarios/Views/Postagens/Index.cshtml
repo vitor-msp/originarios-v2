@@ -25,7 +25,7 @@
 
                 <a href="@Url.Action("Details", "Postagens", new { id = item.id_post })">
 
-                    <img src="@Url.Action("ObterImgNaView", "Postagens", new { id = item.id_post, img = 1 })" class="card-img-top border " alt="..." style=" ">
+                    <img src="@Url.Action("ObterImgNaView", "Postagens", new { id = item.id_post, img = 1 })" class="card-img-top border " alt="..." style=" " onerror="this.style.display = 'none'">
                 </a>
 
                 <div class="card-body" style="height: 8rem;overflow: auto;">

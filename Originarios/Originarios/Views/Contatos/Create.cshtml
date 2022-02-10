@@ -37,7 +37,7 @@
                                             }
                                             else
                                             {
-                                                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @type = "text", id = "form_name", name = "name", @class = "form-control", placeholder = "Digite o seu nome completo *", required = "required", dataError = "O nome é necessário.", @maxlength = "50" } })
+                                                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @type = "text", id = "form_name", name = "name", @class = "form-control", placeholder = "Digite o seu nome completo *", required = "required", dataError = "O nome é necessário.", @maxlength = "50", autofocus = "autofocus" } })
                                             }
                                             @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
 
@@ -81,7 +81,7 @@
                                         <div class="form-group text-white">
                                             <label class="my-2" for="form_need">Especifique sua necessidade *</label>
 
-                                            @Html.DropDownListFor(model => model.assunto, new SelectList(ViewBag.assunto, "texto", "texto"), "--Selecione sua dúvida--", new { @class = "form-control", id = "form_need", name = "need", required = "required", dataError = "Por favor, especifique sua necessidade.", @maxlength = "30" })
+                                            @Html.DropDownListFor(model => model.assunto, new SelectList(ViewBag.assunto, "texto", "texto"), "--Selecione sua dúvida--", new { @class = "form-control", id = "form_need", name = "need", required = "required", dataError = "Por favor, especifique sua necessidade.", @maxlength = "30", autofocus = "autofocus" })
                                             @Html.ValidationMessageFor(model => model.assunto, "", new { @class = "text-danger" })
 
                                         </div>

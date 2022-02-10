@@ -22,11 +22,10 @@
 
         <div class="d-inline-block vertical-align: top text-black mt-4 " style="">
             <div class="card" style="width: 15rem;height: 436px;box-shadow: 2px 2px 8px #11111170;">
-                @*<div class="card" style="width: 15rem; height: 35rem;">*@
 
                 <a href="@Url.Action("Details", "Produtos", new { id = item.id_post })">
 
-                    <img src="@Url.Action("ObterImgNaView", "Postagens", new { id = item.id_post, img = 1 })" class="card-img-top border " alt="..." style="max-width: 100%; width: 300px; height: 270px; object-fit: cover; object-position: top; ">
+                    <img src="@Url.Action("ObterImgNaView", "Postagens", new { id = item.id_post, img = 1 })" class="card-img-top border " alt="..." style="max-width: 100%; width: 300px; height: 270px; object-fit: cover; object-position: top;" onerror="this.style.display = 'none'">
                 </a>
 
                 <div class="card-body text-center" style="height: 8rem;overflow: auto;">

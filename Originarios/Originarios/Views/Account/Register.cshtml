@@ -18,7 +18,7 @@
 
                         <div class="form-group col-md-5 pb-4">
                             <label for="inputNome">Nome completo *</label>
-                            @Html.TextBoxFor(m => m.usuario.nome, new { @class = "form-control", @maxlength = "50", id = "inputNome", name = "nome", placeholder = "Digite o seu nome completo *", required = "required", dataError = "O nome é necessário." })
+                            @Html.TextBoxFor(m => m.usuario.nome, new { @class = "form-control", @maxlength = "50", id = "inputNome", name = "nome", placeholder = "Digite o seu nome completo *", required = "required", dataError = "O nome é necessário.", autofocus = "autofocus" })
                         </div>
 
                         <div class="form-group col-md-5 pb-4">
@@ -72,8 +72,8 @@
                         </div>
 
                         <div class="form-group col-md-4 pb-4">
-                            <label for="inputSenha">Confirmar senha *</label>
-                            @Html.PasswordFor(m => m.registro.ConfirmPassword, new { @class = "form-control", id = "inputSenha" })
+                            <label for="inputConfSenha">Confirmar senha *</label>
+                            @Html.PasswordFor(m => m.registro.ConfirmPassword, new { @class = "form-control", id = "inputConfSenha" })
                         </div>
 
                     </div>
