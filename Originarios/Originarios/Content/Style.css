@@ -4,14 +4,9 @@
     --cor-escura-transp: rgba(117, 69, 41, 0.5);
     --cor-clara: rgb(155, 106, 78);
     --cor-clara-transp: rgba(155, 106, 78, 0.5);
-    --nav-background-escuro: #808080;
-    --nav-background-claro: #F2F2F2;
-    --bory-background-escuro: #365902;
-    --bory-background-medio: #65A603;
-    --bory-background-claro: #DFE2F2;
 }
 body {
-    background-image: linear-gradient(180deg var(--bory-background-escuro), var(--bory-background-medio),var(--bory-background-claro);
+    background-color: var(--cor-clara);
     text-align: justify;
 }
 #divPrincipal {
@@ -28,8 +23,7 @@ a[disabled="disabled"] {
 
 /* ---------- início nav ---------- */
 nav {
-    background-image: linear-gradient(180deg var(--nav-background-claro), var(--nav-background-escuro),var(--nav-background-claro);
-    
+    background-color: var(--cor-escura);
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
