@@ -74,12 +74,22 @@
                                         <img src="~/Images/fale.png" width="20" height="20" style="margin: -3px 10px 0 0;" />Contato
                                     </a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link py-3 bg-transparent" href="Divulgacao/Index">
+                                        @* <img src="~/Images/fale.png" width="20" height="20" style="margin: -3px 10px 0 0;" />*@Publicações
+                                    </a>
+                                </li>
+
+
                                 @if (Request.IsAuthenticated)
                                 {
-                                    <li class="nav-item">
-                                        @Html.ActionLink("Meus Produtos", "Index", "Postagens", null, htmlAttributes: new { @class = "nav-link px-4 py-3" })
-                                    </li>
-                                }
+                            <li class="nav-item">
+                                @Html.ActionLink("Meus Produtos", "Index", "Postagens", null, htmlAttributes: new { @class = "nav-link px-4 py-3" })
+                            </li>
+                                <li class="nav-item">
+                                @Html.ActionLink("Minhas Publicações", "Index", "Publicacoes", null, htmlAttributes: new { @class = "nav-link px-4 py-3" })
+                            </li>}
                             </ul>
                         </div>
                     </div>

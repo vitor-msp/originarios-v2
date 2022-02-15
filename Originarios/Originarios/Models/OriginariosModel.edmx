@@ -41,10 +41,10 @@
           </Key>
           <Property Name="id_public" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="usuario" Type="int" Nullable="false" />
-          <Property Name="titulo" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="corpo" Type="varchar" MaxLength="5000" Nullable="false" />
-          <Property Name="locali" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="data_public" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="corpo" Type="varchar" MaxLength="5000" />
+          <Property Name="locali" Type="varchar" MaxLength="20" />
+          <Property Name="data_public" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -181,11 +181,11 @@
           </Key>
           <Property Name="id_public" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="usuario" Type="Int32" Nullable="false" />
-          <Property Name="titulo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="corpo" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="locali" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="corpo" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="locali" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="data_public" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Usuario1" Relationship="OriginariosModel.fk_public_usu" FromRole="Publicacao" ToRole="Usuario" />
-          <Property Name="data_public" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <Association Name="fk_public_usu">
           <End Type="OriginariosModel.Usuario" Role="Usuario" Multiplicity="1" />

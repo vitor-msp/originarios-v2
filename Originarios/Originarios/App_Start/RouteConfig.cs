@@ -117,6 +117,12 @@ namespace Originarios
                 url: "Ver_Publicacao",
                 defaults: new { controller = "Publicacoes", action = "Details" }
             );
+
+            routes.MapRoute(
+                name: "Deletar_Publicacao",
+                url: "Deletar_Publicacao",
+                defaults: new { controller = "Publicacoes", action = "Delete" }
+            );
             //aqui termina o que editamos 
             routes.MapRoute(
                 name: "Default",

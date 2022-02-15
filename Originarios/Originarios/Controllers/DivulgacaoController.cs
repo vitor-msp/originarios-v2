@@ -55,7 +55,7 @@ namespace Originarios.Controllers
             //ViewBag.email = $"mailto:{publicacao.Usuario1.email}?subject=Interesse%20em%20produto&body=Ola%2C%20vi%20o%20produto%20-%20{tituloFormatado}%20-%20no%20site%20Originarios%20e%20me%20interessei.%20Como%20adquiro%3F";
             //ViewBag.wpp = $"https://api.whatsapp.com/send?phone=55" + $"{publicacao.Usuario1.ddd}{publicacao.Usuario1.whatsapp}&text=Ola%2C%20vi%20o%20produto%20-%20{tituloFormatado}%20-%20no%20site%20Originarios%20e%20me%20interessei.%20Como%20adquiro%3F";
 
-            return View();
+            return View(publicacao);
         }
 
         private static string removerAcentos(string texto)

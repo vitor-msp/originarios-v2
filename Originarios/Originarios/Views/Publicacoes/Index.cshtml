@@ -18,7 +18,7 @@
     {
 
 <div class="d-inline-block vertical-align: top text-black mt-4 " style="">
-    <div class="card" style="width: 15rem; height: 35rem;">
+    <div class="card" style="width: 15rem; height: 15rem;">
 
         <a href="@Url.Action("Details", "Publicacoes", new { id = item.id_public })">
 
@@ -27,7 +27,9 @@
         <div class="card-body" style="height: 8rem;overflow: auto;">
             <br />
             <h5 class="card-title"> @Html.DisplayFor(modelItem => item.titulo) </h5>
-            <h5 class="card-text text-danger" style="">@Html.DisplayFor(modelItem => item.titulo)</h5>
+            <h5 class="card-text text-danger" style="">Postado em:</h5>
+
+            <h5 class="card-text text-danger" style="">@Html.DisplayFor(modelItem => item.data_public)</h5>
             <p><a href="@Url.Action("Details", "Publicacoes",new { id = item.id_public })" class="text-info">Ver mais detalhes</a></p>
         </div>
 

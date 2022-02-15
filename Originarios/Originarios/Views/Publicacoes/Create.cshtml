@@ -15,10 +15,10 @@
     @*-------------------------- Inputs texto --------------------------*@
     <div class="row">
 
-        <div class="form-group col-12 col-sm-9">
+        <div class="form-group col-12 col-sm-12">
             <label class="control-label" for="titulo">Título:</label>
-            <div class="col-12 col-sm-11">
-                @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { id = "titulo", autofocus = "autofocus", @class = "form-control", @maxlength = "30", required = "required", dataError = "Um título é necessário." } })
+            <div class="col-12 col-sm-12">
+                @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { id = "titulo", autofocus = "autofocus", @class = "form-control", @maxlength = "100", required = "required", dataError = "Um título é necessário." } })
                 @Html.ValidationMessageFor(model => model.titulo, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -47,7 +47,7 @@
         <div class="form-group col-2">
             <label class="control-label" for="data_public">Data:</label>
             <div class="col-12">
-                @Html.TextAreaFor(model => model.data_public, 1, 10, htmlAttributes: new { id = "data_public", @class = "form-control", @maxlength = "5000" })
+                @Html.TextAreaFor(model => model.data_public, 1, 10, htmlAttributes: new { id = "data_public", @class = "form-control", @maxlength = "10" })
                 @Html.ValidationMessageFor(model => model.corpo, "", new { @class = "text-danger" })
             </div>
         </div>

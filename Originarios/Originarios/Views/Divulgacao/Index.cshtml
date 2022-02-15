@@ -11,26 +11,26 @@
     {
         @*----------------------------Div de publicação-------------------------------*@
 
-<div style="text-align:left;">
+        <div style="text-align:left; ">
 
-    <h2>@Html.DisplayFor(modelItem => item.titulo)</h2><br />
+            <h2>@Html.DisplayFor(modelItem => item.titulo)</h2><br />
 
-    @*<img src="@Url.Action("ObterImgNaView", "Publicacoes", new { id = item.id_public, img = 1 })"
-        style="background-position: center top; background-repeat: no-repeat; background-size: cover; background-attachment: fixed; padding: 0 10px; width: 100%; border-width:thin; border-style: solid; border-color: black;">*@
+            @*<img src="@Url.Action("ObterImgNaView", "Publicacoes", new { id = item.id_public, img = 1 })"
+                style="background-position: center top; background-repeat: no-repeat; background-size: cover; background-attachment: fixed; padding: 0 10px; width: 100%; border-width:thin; border-style: solid; border-color: black;">*@
 
-    <h5>@Html.DisplayFor(modelItem => item.Usuario1.nome)</h5>
+            <h5>@Html.DisplayFor(modelItem => item.Usuario1.nome)</h5>
 
-    <h5>@Html.DisplayFor(modelItem => item.data_public)</h5>
+            <h5>11/02/2022</h5>@*<h3>@Html.DisplayFor(modelItem => item.data)</h3><br />*@
 
-    <h5>@Html.DisplayFor(modelItem => item.locali)</h5>
+            <h5>@Html.DisplayFor(modelItem => item.locali)</h5><br />
 
-    <div style="text-indent: 40px; border: initial; width:1125px; height: 200px; padding: 10px; overflow-y:hidden" align="justify">
-        <p style="overflow-x: hidden; text-overflow:ellipsis">@Html.DisplayFor(modelItem => item.corpo)</p>
-    </div><br />
+            <div style="border:inherit">
+                <p style="overflow: auto;">@Html.DisplayFor(modelItem => item.corpo)<br /></p><br />
+            </div>
 
-    <a href="~/Views/Divulgacao/Integra.cshtml" class="btn btn-light">Ver publicação na íntegra</a>
+            <input type="button" class="btn btn-light" value="Ver publicação na íntegra" name="Integra" href="./Integra" />
 
-</div><hr /><br />
+        </div><hr /><br /><br /><br />
     }
 </div>
 

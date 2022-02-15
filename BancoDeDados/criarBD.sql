@@ -51,13 +51,11 @@ go
 create table Publicacao (
   id_public int identity(1,1),
   usuario int not null,
-  titulo nvarchar(30) not null,
+  titulo nvarchar(100) not null,
   corpo varchar(5000),
-  nm_img1 nvarchar(20),
-  vb_img1 varbinary(max),
   locali varchar (20),
+  data_public varchar (10),
   constraint pk_public primary key (id_public),
   constraint fk_public_usu foreign key (usuario) references Usuario (id_usu)
 );
 
-select * from usuario;
