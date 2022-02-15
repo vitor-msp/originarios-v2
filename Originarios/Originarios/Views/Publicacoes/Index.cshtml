@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Originarios.Models.Publicacao>
+
+@{ ViewBag.Title = "Minhas Publicações"; }
+
+<h2>@ViewBag.Title</h2>
+
+@if (ViewBag.msg != null)
+{
+<h5 class="text-success">@ViewBag.msg</h5>}
+
+<p>
+    @Html.ActionLink("Criar novo", "Create", "publicacoes", null, htmlAttributes: new { @class = "btn btn-warning" })
+</p>
+
+<div class="container-fluid p-0 d-flex flex-row flex-wrap justify-content-around" style="">
+
+    @foreach (var item in Model)
+    {
+
+<div class="d-inline-block vertical-align: top text-black mt-4 " style="">
+    <div class="card" style="width: 15rem; height: 35rem;">
+
+        <a href="@Url.Action("Details", "Publicacoes", new { id = item.id_public })">
+
+        </a>
+
+        <div class="card-body" style="height: 8rem;overflow: auto;">
+            <br />
+            <h5 class="card-title"> @Html.DisplayFor(modelItem => item.titulo) </h5>
+            <h5 class="card-text text-danger" style="">@Html.DisplayFor(modelItem => item.titulo)</h5>
+            <p><a href="@Url.Action("Details", "Publicacoes",new { id = item.id_public })" class="text-info">Ver mais detalhes</a></p>
+        </div>
+
+    </div>
+</div>}
+</div>

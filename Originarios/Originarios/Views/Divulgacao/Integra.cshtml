@@ -1,0 +1,67 @@
+﻿@model Originarios.Models.Publicacao
+
+@{ ViewBag.Title = "Detalhes da Publicação"; }
+
+<h2>@ViewBag.Title</h2>
+
+@if (ViewBag.msg != null)
+{
+    <h5 class="text-success">@ViewBag.msg</h5>}
+
+<hr />
+@*-------------------------- Inputs texto --------------------------*@
+<div class="row">
+
+    <div class="form-group col-12 col-sm-9 pb-4">
+        <span><b>Título:</b></span>
+        <div class="col-12 col-sm-11">
+            <span>@Html.DisplayFor(model => model.titulo)</span>
+        </div>
+    </div>
+</div>
+<hr />
+@*-------------------------- Detalhes --------------------------*@
+<div class="row">
+    <span class="px-0"><b>Detalhes:</b></span>
+    <div class="col-12">
+        <span class="text-break">@Html.DisplayFor(model => model.corpo)</span>
+    </div>
+</div>
+
+<hr />
+
+@*-------------------------- Local --------------------------*@
+
+<div class="row">
+
+    <div class="form-group col-12 col-sm-9 pb-4">
+        <span><b>Local:</b></span>
+        <div class="col-12 col-sm-11">
+            <span>@Html.DisplayFor(model => model.locali)</span>
+        </div>
+    </div>
+</div>
+<hr />
+@*-------------------------- Data da publicação --------------------------*@
+
+<div class="row">
+
+    <div class="form-group col-12 col-sm-3 pb-4">
+        <span><b>Data da publicação:</b></span>
+        <div class="col-12 col-sm-11">
+            <span>@Html.DisplayFor(model => model.data_public)</span>
+        </div>
+    </div>
+</div>
+
+
+
+@*-------------------------- Botões --------------------------*@
+<div class="row">
+    @using (Html.BeginForm("Voltar", "Divulgacoes", new { id = Model.id_public }, FormMethod.Post, htmlAttributes: new { @class = "px-0 d-flex justify-content-between justify-content-sm-center" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ActionLink("Voltar", "Index", "Divulgacoes", null, htmlAttributes: new { @class = "btn btn-secondary" })
+        <input type="submit" value="Voltar" class="btn btn-danger" />}
+</div>

@@ -160,10 +160,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContatosController.cs" />
+    <Compile Include="Controllers\DivulgacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostagensController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Controllers\PublicacoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -299,6 +301,13 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Originarios - Web Deploy.pubxml" />
+    <Content Include="Views\Divulgacao\index-old.cshtml" />
+    <Content Include="Views\Divulgacao\Index.cshtml" />
+    <Content Include="Views\Divulgacao\Integra.cshtml" />
+    <Content Include="Views\Publicacoes\Create.cshtml" />
+    <Content Include="Views\Publicacoes\Details.cshtml" />
+    <Content Include="Views\Publicacoes\Edit.cshtml" />
+    <Content Include="Views\Publicacoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
