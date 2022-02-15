@@ -19,7 +19,7 @@
 
                         <div class="form-group col-md-7 pb-4 mx-auto">
                             <label for="email">E-mail:</label>
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "email", autofocus = "autofocus" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "email" })
                             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
 

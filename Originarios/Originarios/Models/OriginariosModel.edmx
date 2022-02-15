@@ -13,7 +13,7 @@
           <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="endereco" Type="nvarchar" MaxLength="70" />
-          <Property Name="assunto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="assunto" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="mensagem" Type="nvarchar" MaxLength="2000" Nullable="false" />
         </EntityType>
         <EntityType Name="Postagem">
@@ -35,6 +35,17 @@
           <Property Name="vb_img4" Type="varbinary(max)" />
           <Property Name="valor" Type="decimal" Precision="7" Scale="2" />
         </EntityType>
+        <EntityType Name="Publicacao">
+          <Key>
+            <PropertyRef Name="id_public" />
+          </Key>
+          <Property Name="id_public" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="int" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="corpo" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="locali" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="data_public" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="id_usu" />
@@ -48,8 +59,6 @@
           <Property Name="estado" Type="char" MaxLength="2" />
           <Property Name="ddd" Type="char" MaxLength="2" Nullable="false" />
           <Property Name="whatsapp" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="tribo" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="assinatura" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <Association Name="fk_post_usu">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
@@ -63,13 +72,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_public_usu">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Publicacao" Type="Self.Publicacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id_usu" />
+            </Principal>
+            <Dependent Role="Publicacao">
+              <PropertyRef Name="usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="OriginariosModelStoreContainer">
           <EntitySet Name="Contato" EntityType="Self.Contato" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Postagem" EntityType="Self.Postagem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publicacao" EntityType="Self.Publicacao" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_post_usu" Association="Self.fk_post_usu">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Postagem" EntitySet="Postagem" />
+          </AssociationSet>
+          <AssociationSet Name="fk_public_usu" Association="Self.fk_public_usu">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Publicacao" EntitySet="Publicacao" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -110,8 +136,7 @@
           <Property Name="estado" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="ddd" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="whatsapp" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="tribo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="assinatura" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Publicacao" Relationship="OriginariosModel.fk_public_usu" FromRole="Usuario" ToRole="Publicacao" />
         </EntityType>
         <Association Name="fk_post_usu">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
@@ -133,6 +158,11 @@
             <End Role="Postagem" EntitySet="Postagem" />
           </AssociationSet>
           <EntitySet Name="Contato" EntityType="OriginariosModel.Contato" />
+          <EntitySet Name="Publicacao" EntityType="OriginariosModel.Publicacao" />
+          <AssociationSet Name="fk_public_usu" Association="OriginariosModel.fk_public_usu">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Publicacao" EntitySet="Publicacao" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Contato">
           <Key>
@@ -142,9 +172,33 @@
           <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="endereco" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="assunto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="assunto" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="mensagem" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Publicacao">
+          <Key>
+            <PropertyRef Name="id_public" />
+          </Key>
+          <Property Name="id_public" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="Int32" Nullable="false" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="corpo" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="locali" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuario1" Relationship="OriginariosModel.fk_public_usu" FromRole="Publicacao" ToRole="Usuario" />
+          <Property Name="data_public" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_public_usu">
+          <End Type="OriginariosModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="OriginariosModel.Publicacao" Role="Publicacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id_usu" />
+            </Principal>
+            <Dependent Role="Publicacao">
+              <PropertyRef Name="usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -174,8 +228,6 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="OriginariosModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="assinatura" ColumnName="assinatura" />
-                <ScalarProperty Name="tribo" ColumnName="tribo" />
                 <ScalarProperty Name="whatsapp" ColumnName="whatsapp" />
                 <ScalarProperty Name="ddd" ColumnName="ddd" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
@@ -197,6 +249,18 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="nome" ColumnName="nome" />
                 <ScalarProperty Name="id_ctt" ColumnName="id_ctt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publicacao">
+            <EntityTypeMapping TypeName="OriginariosModel.Publicacao">
+              <MappingFragment StoreEntitySet="Publicacao">
+                <ScalarProperty Name="data_public" ColumnName="data_public" />
+                <ScalarProperty Name="locali" ColumnName="locali" />
+                <ScalarProperty Name="corpo" ColumnName="corpo" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="id_public" ColumnName="id_public" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

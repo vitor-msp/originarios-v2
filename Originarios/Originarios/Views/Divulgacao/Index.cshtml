@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Originarios.Models.Publicacao>
+
+@{ ViewBag.Title = "Divulgação"; }
+<div>
+
+    @*-----------------------------Título da Página-------------------------------*@
+    <div class="text-center">
+        <h1 class="display-4">Publicações</h1>
+    </div><hr />
+    @foreach (var item in Model)
+    {
+        @*----------------------------Div de publicação-------------------------------*@
+
+<div style="text-align:left;">
+
+    <h2>@Html.DisplayFor(modelItem => item.titulo)</h2><br />
+
+    @*<img src="@Url.Action("ObterImgNaView", "Publicacoes", new { id = item.id_public, img = 1 })"
+        style="background-position: center top; background-repeat: no-repeat; background-size: cover; background-attachment: fixed; padding: 0 10px; width: 100%; border-width:thin; border-style: solid; border-color: black;">*@
+
+    <h5>@Html.DisplayFor(modelItem => item.Usuario1.nome)</h5>
+
+    <h5>@Html.DisplayFor(modelItem => item.data_public)</h5>
+
+    <h5>@Html.DisplayFor(modelItem => item.locali)</h5>
+
+    <div style="text-indent: 40px; border: initial; width:1125px; height: 200px; padding: 10px; overflow-y:hidden" align="justify">
+        <p style="overflow-x: hidden; text-overflow:ellipsis">@Html.DisplayFor(modelItem => item.corpo)</p>
+    </div><br />
+
+    <a href="~/Views/Divulgacao/Integra.cshtml" class="btn btn-light">Ver publicação na íntegra</a>
+
+</div><hr /><br />
+    }
+</div>
+

@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Originarios</RootNamespace>
     <AssemblyName>Originarios</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,11 +60,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -160,10 +157,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContatosController.cs" />
+    <Compile Include="Controllers\DivulgacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostagensController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Controllers\PublicacoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +189,10 @@
       <DependentUpon>OriginariosModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Postagem.cs">
+      <DependentUpon>OriginariosModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Publicacao-old.cs" />
+    <Compile Include="Models\Publicacao.cs">
       <DependentUpon>OriginariosModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
@@ -296,6 +299,13 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Originarios - Web Deploy.pubxml" />
+    <Content Include="Views\Divulgacao\index-old.cshtml" />
+    <Content Include="Views\Publicacoes\Create.cshtml" />
+    <Content Include="Views\Publicacoes\Details.cshtml" />
+    <Content Include="Views\Publicacoes\Edit.cshtml" />
+    <Content Include="Views\Divulgacao\Integra.cshtml" />
+    <Content Include="Views\Divulgacao\Index.cshtml" />
+    <Content Include="Views\Publicacoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
