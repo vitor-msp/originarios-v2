@@ -86,7 +86,44 @@ namespace Originarios
                 url: "Ver_Produto",
                 defaults: new { controller = "Postagens", action = "Details" }
             );
+            //aqui começa o que eu e Andriele editamos neste arquivo
 
+            routes.MapRoute(
+                name: "DivulgacaoIntegra",
+                url: "Divulgacao",
+                defaults: new { controller = "Divulgacao", action = "Integra" }
+            );
+
+            routes.MapRoute(
+                name: "DivulgacaoIndex",
+                url: "Divulgacoes",
+                defaults: new { controller = "Divulgacao", action = "Index" }
+            );
+
+            routes.MapRoute(
+                name: "Criar_Publicacao",
+                url: "Criar_Publicacao",
+                defaults: new { controller = "Publicacoes", action = "Create" }
+            );
+
+            routes.MapRoute(
+                name: "Editar_Publicacao",
+                url: "Editar_Publicacao",
+                defaults: new { controller = "Publicacoes", action = "Edit" }
+            );
+
+            routes.MapRoute(
+                name: "Ver_Publicacao",
+                url: "Ver_Publicacao",
+                defaults: new { controller = "Publicacoes", action = "Details" }
+            );
+
+            routes.MapRoute(
+                name: "Deletar_Publicacao",
+                url: "Deletar_Publicacao",
+                defaults: new { controller = "Publicacoes", action = "Delete" }
+            );
+            //aqui termina o que editamos 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

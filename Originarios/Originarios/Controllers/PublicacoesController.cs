@@ -97,7 +97,7 @@ namespace Originarios.Controllers
             [Bind(Include = "id_public,usuario,titulo,corpo,locali,data_public")] Publicacao publicacao
         )
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
               //  publicacao.vb_img1 = string.IsNullOrEmpty(base64_img1) ? null : Convert.FromBase64String(base64_img1.Substring(22));
                 
@@ -131,8 +131,9 @@ namespace Originarios.Controllers
         // remove publicação no banco de dados
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int ? id)
         {
+
             Usuario usuarioLogado = BuscaUsuarioLogado();
             if (id == null || usuarioLogado == null)
             {
@@ -148,7 +149,7 @@ namespace Originarios.Controllers
             return RedirectToAction("Index", new { msg = 'd' });
         }
 
-        [AllowAnonymous]
+            [AllowAnonymous]
         /*
         // método que busca, renderiza e retorna imagem
         public FileContentResult ObterImgNaView(int id, int img)

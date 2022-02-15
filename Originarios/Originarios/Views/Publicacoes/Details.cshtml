@@ -20,9 +20,6 @@
     </div>
 </div>
 <hr />
-
-
-<hr />
 @*-------------------------- Detalhes --------------------------*@
 <div class="row">
     <span class="px-0"><b>Detalhes:</b></span>
@@ -47,18 +44,21 @@
 <hr />
 @*-------------------------- Data da publicação --------------------------*@
 
-<div class="form-group col-2">
-    <label class="control-label" for="data_public">Data:</label>
-    <div class="col-12">
-        @Html.TextAreaFor(model => model.data_public, 1, 10, htmlAttributes: new { id = "data_public", @class = "form-control", @maxlength = "5000" })
-        @Html.ValidationMessageFor(model => model.corpo, "", new { @class = "text-danger" })
+<div class="row">
+
+    <div class="form-group col-12 col-sm-3 pb-4">
+        <span><b>Data da publicação:</b></span>
+        <div class="col-12 col-sm-11">
+            <span>@Html.DisplayFor(model => model.data_public)</span>
+        </div>
     </div>
 </div>
 
 
+
 @*-------------------------- Botões --------------------------*@
 <div class="row">
-    @using (Html.BeginForm("Delete", "Publicações", new { id = Model.id_public }, FormMethod.Post, htmlAttributes: new { @class = "px-0 d-flex justify-content-between justify-content-sm-center" }))
+    @using (Html.BeginForm("Delete", "Publicacoes", new { id = Model.id_public }, FormMethod.Post, htmlAttributes: new { @class = "px-0 d-flex justify-content-between justify-content-sm-center" }))
     {
 @Html.AntiForgeryToken()
 
