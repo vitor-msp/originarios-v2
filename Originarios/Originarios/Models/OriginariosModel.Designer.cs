@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\DELL\Downloads\originarios-v2-master\originarios-v2-master\Originarios\Originarios\Models\OriginariosModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Vítor\Desktop\RecodePro\Projeto\Entregas\Entrega 2\Originarios\Originarios\Models\OriginariosModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
