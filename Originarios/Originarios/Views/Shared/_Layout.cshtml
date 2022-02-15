@@ -26,6 +26,12 @@
         .bg-pre-crop {
             background-color: rgba(0,0,0,0.5);
         }
+        body{
+           background-image:linear-gradient(180deg white,#808080,white) !important;
+        }
+        nav {
+            background-image: linear-gradient(180deg white,#808080,white) !important;
+        }
     </style>
 
     <!-- Font Awesome icons (free version)-->
@@ -46,11 +52,11 @@
             <nav class="row p-none">
                 <div id="nav" class="col-6 col-lg-8 navbar navbar-expand-lg navbar-light animate__animated animate__fadeInDown">
                     <div class="container-fluid justify-content-start">
-                        <button class="navbar-toggler my-2 my-lg-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navToggler" aria-controls="navToggler" aria-expanded="false" aria-label="Menu de navegação">
-                            <span class="navbar-toggler-icon"></span>
+                        <button class="navbar-toggler my-2 my-lg-0 bg-transparent border--transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navToggler" aria-controls="navToggler" aria-expanded="false" aria-label="Menu de navegação">
+                            <span class="navbar-toggler-icon" style="filter: invert(100%)"></span>
                         </button>
                         <!--logo Originários-->
-                        <a href="/Home" class="navbar-brand" style="color: white; filter: invert(100%);">
+                        <a href="/Home" class="navbar-brand" style="color: white;">
                             <picture>
                                 <source media="(max-width:597px)" srcset="~/Images/originarios-cortado.png" width="49" height="auto" class="imgElement img-responsive">
                                 <source media="(min-width:597px)" srcset="~/Images/originarios.png" width="170" height="auto" class="imgElement img-responsive">
@@ -61,17 +67,17 @@
                             <ul class="navbar-nav me-auto mb-lg-0">
                                 <li class="nav-item">
                                     <a class="nav-link py-3 bg-transparent" aria-current="page" href="/Home">
-                                        <img src="~/Images/inicio.png" width="20" height="20" style="margin: -3px 10px 0 0;" />Home
+                                        <img src="~/Images/inicio.png" width="20" height="20" style="margin: -3px 10px 0 0; filter: invert(100%);" />Home
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link py-3 bg-transparent" href="/Produtos">
-                                        <img src="~/Images/produtos.png" width="20" height="20" style="margin: -3px 10px 0 0;" />Produtos
+                                        <img src="~/Images/produtos.png" width="20" height="20" style="margin: -3px 10px 0 0; filter: invert(100%);" />Produtos
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link py-3 bg-transparent" href="/Contato">
-                                        <img src="~/Images/fale.png" width="20" height="20" style="margin: -3px 10px 0 0;" />Contato
+                                        <img src="~/Images/fale.png" width="20" height="20" style="margin: -3px 10px 0 0; filter: invert(100%);" />Contato
                                     </a>
                                 </li>
                                 @if (Request.IsAuthenticated)
@@ -166,7 +172,7 @@
             </main>
             <!---------- fim main ---------->
             <!---------- início footer ---------->
-            <footer class="row text-light p-3">
+            <footer class="row text-light p-3" style="margin: 10px;">
                 <div class="copyright">
                     <div class="container">
                         <div class="row">

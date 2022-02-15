@@ -4,9 +4,11 @@
     --cor-escura-transp: rgba(117, 69, 41, 0.5);
     --cor-clara: rgb(155, 106, 78);
     --cor-clara-transp: rgba(155, 106, 78, 0.5);
+    --footer-background: #65a603ba;
+    --color-black: black !important;
 }
 body {
-    background-color: var(--cor-clara);
+    background-image: linear-gradient(180deg,#365902, #4f7e07d4, transparent);
     text-align: justify;
 }
 #divPrincipal {
@@ -19,21 +21,29 @@ body {
 a[disabled="disabled"] {
     pointer-events: none;
 }
+.p--5 {
+    padding: 1rem !important;
+}
+.row, .col--12 {
+    /* margin: 0px; */
+    /* padding: 0px; */
+}
 /* ---------- fim geral ---------- */
 
 /* ---------- início nav ---------- */
 nav {
-    background-color: var(--cor-escura);
+    background-image: linear-gradient(180deg, white, #d5d4d4fc, #979797f2, #d5d3d3f5);
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 10;
 }
+
 .navbar-light .navbar-nav .nav-link {
-    color: white;
+    color: var(--color-black);
 }
 .navbar-light .navbar-nav .nav-link:hover{
-    color: white;
+    color: var(--color-black);
     font-size: 1.1em;
     font-weight: bold;
 }
@@ -43,9 +53,23 @@ nav {
 .navbar-light .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
+.border--transparent {
+    border: none;
+}
 .row > .navbar-light {
     padding: 0px;
 }
+.color--titulo {
+    background-image: linear-gradient(to bottom, #ffc107f5, #d9b504bf, #ffc107f5, #e08240a8, #ffc107);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+.box--shadow {
+    box-shadow: 1px 1px 8px #ffffffc7
+}
+
 #navToggler {
     margin-left: none !important;
 }
@@ -64,13 +88,28 @@ nav {
         padding-right: 9px;
     }
 }
+@media (max-width:300px){
+    .navbar-light .navbar-nav .nav-link {
+        color: black;
+        /*display: none;*/
+    }
+    .responsive--code {
+        padding: 0px 2px !important;
+    }
+}
 /* ---------- fim nav ---------- */
 
 /* ---------- início main ---------- */
-/* ---------- fim main ---------- */
 
-/* ---------- início footer ---------- */
-footer {
-    background-color: var(--cor-escura);
-}
-/* ---------- fim footer ---------- */
+    
+    /* ---------- fim main ---------- */
+    /* ---------- início footer ---------- */
+
+    footer {
+        background: var(--footer-background);
+        color: var(--color-black);
+        border-radius: 25px;
+        width: 100;
+        margin: 10px
+    }
+    /* ---------- fim footer ---------- */
