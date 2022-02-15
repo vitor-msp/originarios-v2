@@ -192,6 +192,9 @@
     <Compile Include="Models\Postagem.cs">
       <DependentUpon>OriginariosModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Publicacao.cs">
+      <DependentUpon>OriginariosModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>OriginariosModel.tt</DependentUpon>
     </Compile>

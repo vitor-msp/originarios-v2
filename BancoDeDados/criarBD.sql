@@ -41,10 +41,20 @@ create table Contato (
   nome nvarchar(50) not null,
   email nvarchar(30) not null,
   endereco nvarchar(70),
-  assunto nvarchar(50) not null,
+  assunto nvarchar(30) not null,
   mensagem nvarchar(2000) not null,
   constraint pk_contato primary key (id_ctt)
 );
 go
 insert into Usuario (nome,cpf,dt_nasc,email,cidade,estado,ddd,whatsapp,tribo,assinatura) values ('Fulano de Tal','01234567891','2000-01-20','teste@teste.com','Rio de Janeiro','RJ','00','12345678','Kiriri','Fulano');
 go
+create table Publicacao (
+  id_public int identity(1,1),
+  usuario int not null,
+  titulo nvarchar(100) not null,
+  corpo varchar(5000),
+  locali varchar(20),
+  data_public varchar(10),
+  constraint pk_public primary key (id_public),
+  constraint fk_public_usu foreign key (usuario) references Usuario (id_usu)
+);

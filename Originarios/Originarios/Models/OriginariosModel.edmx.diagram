@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="OriginariosModel.Usuario" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
         <AssociationConnector Association="OriginariosModel.fk_post_usu" ManuallyRouted="false" />
         <EntityTypeShape EntityType="OriginariosModel.Contato" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="OriginariosModel.Publicacao" Width="1.5" PointX="3" PointY="6.5" />
+        <AssociationConnector Association="OriginariosModel.fk_public_usu" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

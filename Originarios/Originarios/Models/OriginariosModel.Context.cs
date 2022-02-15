@@ -28,5 +28,6 @@ namespace Originarios.Models
         public virtual DbSet<Postagem> Postagem { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Contato> Contato { get; set; }
+        public virtual DbSet<Publicacao> Publicacao { get; set; }
     }
 }
