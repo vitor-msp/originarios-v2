@@ -46,8 +46,6 @@ create table Contato (
   constraint pk_contato primary key (id_ctt)
 );
 go
-insert into Usuario (nome,cpf,dt_nasc,email,cidade,estado,ddd,whatsapp,tribo,assinatura) values ('Fulano de Tal','01234567891','2000-01-20','teste@teste.com','Rio de Janeiro','RJ','00','12345678','Kiriri','Fulano');
-go
 create table Publicacao (
   id_public int identity(1,1),
   usuario int not null,
