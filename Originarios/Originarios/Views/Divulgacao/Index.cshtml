@@ -28,7 +28,7 @@
         <p style="overflow-x: hidden; text-overflow:ellipsis">@Html.DisplayFor(modelItem => item.corpo)</p>
     </div><br />
 
-    <a href="~/Views/Divulgacao/Integra.cshtml" class="btn btn-light">Ver publicação na íntegra</a>
+    <a href="@Url.Action("Integra", "Divulgacao",new { id = item.id_public })" class="btn btn-light">Ver publicação na íntegra</a>
 
 </div><hr /><br />
     }

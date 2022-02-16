@@ -1,4 +1,7 @@
 ﻿/* ---------- início geral ---------- */
+html{
+    scroll-behavior:smooth;
+}
 :root {
     --cor-escura: rgb(117, 69, 41);
     --cor-escura-transp: rgba(117, 69, 41, 0.5);
@@ -73,6 +76,9 @@ nav {
 #navToggler {
     margin-left: none !important;
 }
+.icons--nav{
+    display:block;
+}
 @media (min-width: 992px) {
     #navToggler {
         margin-left: 50px !important;
@@ -100,16 +106,23 @@ nav {
 /* ---------- fim nav ---------- */
 
 /* ---------- início main ---------- */
-
+.background--img {
+    background-image: url(../Images/rio.jpeg);
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    filter: brightness(0.8);
+    clip-path: polygon(-65% 7%, 51% 100%, 205% -30%);
+}
     
-    /* ---------- fim main ---------- */
-    /* ---------- início footer ---------- */
+/* ---------- fim main ---------- */
+/* ---------- início footer ---------- */
 
-    footer {
-        background: var(--footer-background);
-        color: var(--color-black);
-        border-radius: 25px;
-        width: 100;
-        margin: 10px
-    }
-    /* ---------- fim footer ---------- */
+footer {
+    background: var(--footer-background);
+    color: var(--color-black);
+    border-radius: 25px;
+    width: 100;
+    margin: 10px 30px;
+}
+/* ---------- fim footer ---------- */

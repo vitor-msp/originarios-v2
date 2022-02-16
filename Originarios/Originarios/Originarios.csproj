@@ -246,6 +246,7 @@
     <Content Include="Images\originarios.png" />
     <Content Include="Images\produtos.png" />
     <Content Include="Images\publicacoes.png" />
+    <Content Include="Images\rio.jpeg" />
     <Content Include="Images\search.png" />
     <Content Include="Images\share.png" />
     <Content Include="Images\show-more.png" />
