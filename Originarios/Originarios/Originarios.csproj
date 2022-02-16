@@ -302,7 +302,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Originarios - Web Deploy.pubxml" />
-    <Content Include="Views\Divulgacao\index-old.cshtml" />
     <Content Include="Views\Divulgacao\Index.cshtml" />
     <Content Include="Views\Divulgacao\Integra.cshtml" />
     <Content Include="Views\Publicacoes\Create.cshtml" />
