@@ -2,7 +2,7 @@
 ## Projeto Final - Recode Pro 2021
 ### Squad 41
 
-Desenvolvimento de um site para venda de produtos indígenas.
+Desenvolvimento de um site para venda de produtos indígenas. Versão 2.
 
 Link da aplicação funcional: <a href="https://originariosapp.azurewebsites.net/" target="_blank">Originários</a>
 

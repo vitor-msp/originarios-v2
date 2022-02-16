@@ -233,10 +233,6 @@
     <Content Include="Images\github.svg" />
     <Content Include="Images\grafismo.png" />
     <Content Include="Images\home.png" />
-    <Content Include="Images\img1.png" />
-    <Content Include="Images\img2.png" />
-    <Content Include="Images\img3.png" />
-    <Content Include="Images\img4.png" />
     <Content Include="Images\imgPost.png" />
     <Content Include="Images\inicio.png" />
     <Content Include="Images\John.png" />
@@ -244,6 +240,10 @@
     <Content Include="Images\loja.png" />
     <Content Include="Images\originarios-cortado.png" />
     <Content Include="Images\originarios.png" />
+    <Content Include="Images\pexels_india_trabalhando.jpg" />
+    <Content Include="Images\pexels_indios_musicos.jpg" />
+    <Content Include="Images\pexels_indios_ornamentado.jpg" />
+    <Content Include="Images\pexels_indio_bem_vestido.jpg" />
     <Content Include="Images\produtos.png" />
     <Content Include="Images\publicacoes.png" />
     <Content Include="Images\rio.jpeg" />
